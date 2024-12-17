@@ -1,0 +1,50 @@
+
+
+
+
+
+pm2 start app.js
+pm2 startup systemd
+sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u limaedu --hp /home/limaedu
+pm2 save
+sudo systemctl start pm2-limaedu
+pm2 stop app
+pm2 restart app
+pm2 monit
+
+
+
+
+
+Nginx
+
+sudo vim /etc/nginx/sites-available/eduardo.destruti.com.conf
+
+server {
+    listen 80;
+    server_name www.destruti.com;
+
+    location / {
+        proxy_pass http://localhost:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+
+sudo nginx -t
+sudo systemctl restart nginx
+sudo ln -s /etc/nginx/sites-available/eduardo.destruti.com.conf /etc/nginx/sites-enabled/eduardo.destruti.com.conf
+sudo ufw allow 'Nginx Full'
+sudo systemctl reload nginx
+
+
+
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d eduardo.destruti.com -d www.destruti.com
+sudo systemctl reload nginx
+
+
