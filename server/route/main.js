@@ -40,7 +40,7 @@ router.get('', async (req, res) => {
 });
 
 
-router.get('/post/:id/:title', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
 
     try {
 
@@ -52,7 +52,7 @@ router.get('/post/:id/:title', async (req, res) => {
             description: data.meta_description,
             meta_description: data.meta_description,
             meta_og_image: data.meta_og_image,
-            url: 'https://www.destruti.com/post/' + req.params.id + '/' + req.params.title.replaceAll(' ', '_'),
+            url: 'https://www.destruti.com/post/' + req.params.id,
         }
 
         res.render('post', { locals, data });
