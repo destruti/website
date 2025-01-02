@@ -136,6 +136,8 @@ router.post('/add-post', authMiddleware, async (req, res) => {
     try {
       const newPost = new Post({
         title: req.body.title,
+        meta_description: req.body.meta_description,
+        meta_og_image: req.body.meta_og_image,
         body: req.body.body
       });
 
@@ -187,6 +189,8 @@ router.post('/edit-post/:id', authMiddleware, async (req, res) => {
 
     await Post.findByIdAndUpdate(req.params.id, {
       title: req.body.title,
+      meta_description: req.body.meta_description,
+      meta_og_image: req.body.meta_og_image,
       body: req.body.body,
       updatedAt: Date.now()
     });

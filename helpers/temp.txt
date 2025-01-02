@@ -1,9 +1,25 @@
 
 
 
+https://www.destruti.com/
 
+
+sudo apt update
+
+sudo apt install nodejs
+node -v
+
+sudo apt install npm
+npm -v
+
+sudo apt-get install build-essential
+sudo apt-get install curl openssl libssl-dev
+
+sudo npm install pm2 -g
 
 pm2 start app.js
+pm2 start app.js --name "DestrutiWebsite"
+pm2 delete DestrutiWebsite
 pm2 startup systemd
 sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u limaedu --hp /home/limaedu
 pm2 save
@@ -13,6 +29,16 @@ pm2 restart app
 pm2 monit
 
 
+sudo /etc/init.d/apache2 restart
+
+
+
+Apache
+
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+sudo a2enmod ssl
+sudo a2enmod rewrite
 
 
 

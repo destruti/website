@@ -6,6 +6,14 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
+  meta_description: {
+    type: String,
+    required: true
+  },
+  meta_og_image: {
+    type: String,
+    required: true
+  },
   body: {
     type: String,
     required: true

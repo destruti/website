@@ -18,6 +18,12 @@
   <label for="title"><b>Title</b></label>
   <input type="text" placeholder="Post Title" name="title" value="<%= data.title %>">
 
+  <label for="meta_description"><b>Meta Description</b></label>
+  <input type="text" placeholder="Post description" name="meta_description" value="<%= data.meta_description %>">
+
+  <label for="meta_og_image"><b>Meta Image with 1200 x 630</b></label>
+  <input type="text" placeholder="Post IMAGE" name="meta_og_image" value="<%= data.meta_og_image %>">
+
   <label for="body"><b>Content</b></label>
   <textarea name="body" cols="50" rows="100"><%= data.body %></textarea>
 
