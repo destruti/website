@@ -1,2 +1,10 @@
 <h1><%= data.title %></h1>
+<h4><%= data.meta_description %></h4>
+<small>Wrote by Eduardo Destruti in <%= data.createdAt.toDateString() %></small>
+<img src="<%= data.meta_og_image %>" />
+<br/>
+<br/>
 <article class="article"><%- data.body %></article>
+<br/>
+<br/>
+Wrote by Eduardo Destruti in <%= data.createdAt.toDateString() %>

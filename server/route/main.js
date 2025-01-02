@@ -47,7 +47,7 @@ router.get('/post/:id', async (req, res) => {
         const data = await Post.findById({ _id: slug });
 
         const locals = {
-            title: data.title + " :: Eduardo Destruti",
+            title: data.title,
             description: "This is a new Destruti Website build in NodeJs and EJS",
         }
 
