@@ -8,9 +8,9 @@ router.get('', async (req, res) => {
 
         const locals = {
             title: "Eduardo Destruti",
-            url: "http://www.destruti.com",
+            url: "https://www.destruti.com",
             description: "This is a personal Eduardo Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
-            meta_description: "This is a new Eduardo Destruti Websitebuild in NodeJs and EJS",
+            meta_description: "This is a new Eduardo Destruti Website build in NodeJs and EJS",
             meta_og_image: "https://www.destruti.com/img/posts/post_20years.jpg",
         };
 
@@ -37,9 +37,7 @@ router.get('', async (req, res) => {
         console.log(error)
     }
 
-
 });
-
 
 router.get('/post/:id', async (req, res) => {
 
@@ -56,17 +54,13 @@ router.get('/post/:id', async (req, res) => {
             url: 'https://www.destruti.com/post/' + req.params.id,
         };
 
-        console.log(locals)
-
         res.render('post', { locals, data });
 
     } catch (error) {
         console.log(error)
     }
 
-
 });
-
 
 router.post('/search', async (req, res) => {
     
@@ -74,7 +68,7 @@ router.post('/search', async (req, res) => {
 
         const locals = {
             title: "Eduardo Destruti",
-            url: "http://www.destruti.com/search",
+            url: "https://www.destruti.com/search",
             description: "This is a personal Eduardo Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
             meta_description: "This is a new Eduardo Destruti Websitebuild in NodeJs and EJS",
             meta_og_image: "https://www.destruti.com/img/posts/post_20years.jpg",
@@ -102,12 +96,11 @@ router.post('/search', async (req, res) => {
 
 });
 
-
 router.get('/about', async (req, res) => {
 
     const locals = {
         title: "Eduardo Destruti",
-        url: "http://www.destruti.com/about",
+        url: "https://www.destruti.com/about",
         description: "This is a personal Eduardo Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
         meta_description: "This is a new Eduardo Destruti Websitebuild in NodeJs and EJS",
         meta_og_image: "https://www.destruti.com/img/posts/post_20years.jpg",
@@ -123,7 +116,7 @@ router.get('/courses', async (req, res) => {
 
     const locals = {
         title: "Eduardo Destruti",
-        url: "http://www.destruti.com/about",
+        url: "https://www.destruti.com/about",
         description: "This is a personal Eduardo Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
         meta_description: "This is a new Eduardo Destruti Websitebuild in NodeJs and EJS",
         meta_og_image: "https://www.destruti.com/img/posts/post_20years.jpg",
@@ -141,7 +134,7 @@ router.get('/posts', async (req, res) => {
 
         const locals = {
             title: "Eduardo Destruti",
-            url: "http://www.destruti.com/about",
+            url: "https://www.destruti.com/about",
             description: "This is a personal Eduardo Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
             meta_description: "This is a new Eduardo Destruti Websitebuild in NodeJs and EJS",
             meta_og_image: "https://www.destruti.com/img/posts/post_20years.jpg",
@@ -169,7 +162,6 @@ router.get('/posts', async (req, res) => {
     } catch (error) {
         console.log(error)
     }
-
 
 });
 
