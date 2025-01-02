@@ -1,0 +1,34 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <h1>My Latest Posts</h1>
+        </div>
+
+        <section class="articles">
+
+          <ul class="article-ul">
+            <% data.forEach(post=> { %>
+              <li>
+                <a href="/post/<%= post._id %>">
+                  <span>
+                    <%= post.title %>
+                  </span>
+                  <span class="article-list__date">
+                    <%= post.createdAt.toDateString() %>
+                  </span>
+                </a>
+              </li>
+              <% }) %>
+          </ul>
+
+          <% if (nextPage !== null) { %>
+            <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+          <% } %>
+
+        </section>
+
+    </div>
+
+</div>
