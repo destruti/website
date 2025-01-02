@@ -55,6 +55,8 @@ router.get('/post/:id', async (req, res) => {
             url: 'https://www.destruti.com/post/' + req.params.id,
         }
 
+        console.log(locals)
+
         res.render('post', { locals, data });
 
     } catch (error) {
