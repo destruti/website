@@ -9,8 +9,9 @@ router.get('', async (req, res) => {
         const locals = {
             title: "Destruti Website",
             description: "This is a personal Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
+            meta_description: "This is a new Destruti Website build in NodeJs and EJS",
+            meta_og_image: "https://www.destruti.com/img/posts/post_20years.jpg",
         }
-        // const data = await Post.find();
 
         let perPage = 10;
         let page = req.query.page || 1;
@@ -39,7 +40,7 @@ router.get('', async (req, res) => {
 });
 
 
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id/:title', async (req, res) => {
 
     try {
 
@@ -48,7 +49,10 @@ router.get('/post/:id', async (req, res) => {
 
         const locals = {
             title: data.title,
-            description: "This is a new Destruti Website build in NodeJs and EJS",
+            description: data.meta_description,
+            meta_description: data.meta_description,
+            meta_og_image: data.meta_og_image,
+            url: 'https://www.destruti.com/post/' + req.params.id + '/' + req.params.title.replaceAll(' ', '_'),
         }
 
         res.render('post', { locals, data });
