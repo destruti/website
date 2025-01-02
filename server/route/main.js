@@ -8,10 +8,11 @@ router.get('', async (req, res) => {
 
         const locals = {
             title: "Eduardo Destruti",
+            url: "http://www.destruti.com",
             description: "This is a personal Eduardo Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
             meta_description: "This is a new Eduardo Destruti Websitebuild in NodeJs and EJS",
             meta_og_image: "https://www.destruti.com/img/posts/post_20years.jpg",
-        }
+        };
 
         let perPage = 10;
         let page = req.query.page || 1;
@@ -53,7 +54,7 @@ router.get('/post/:id', async (req, res) => {
             meta_description: data.meta_description,
             meta_og_image: data.meta_og_image,
             url: 'https://www.destruti.com/post/' + req.params.id,
-        }
+        };
 
         console.log(locals)
 
@@ -68,12 +69,16 @@ router.get('/post/:id', async (req, res) => {
 
 
 router.post('/search', async (req, res) => {
+    
     try {
 
         const locals = {
-            title: "Seach",
-            description: "Simple Blog created with NodeJs, Express & MongoDb."
-        }
+            title: "Eduardo Destruti",
+            url: "http://www.destruti.com/search",
+            description: "This is a personal Eduardo Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
+            meta_description: "This is a new Eduardo Destruti Websitebuild in NodeJs and EJS",
+            meta_og_image: "https://www.destruti.com/img/posts/post_20years.jpg",
+        };
 
         let searchTerm = req.body.searchTerm;
         const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "")
@@ -101,9 +106,13 @@ router.post('/search', async (req, res) => {
 router.get('/about', async (req, res) => {
 
     const locals = {
-        title: "Destruti Website",
-        description: "This is a personal Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
-    }
+        title: "Eduardo Destruti",
+        url: "http://www.destruti.com/about",
+        description: "This is a personal Eduardo Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
+        meta_description: "This is a new Eduardo Destruti Websitebuild in NodeJs and EJS",
+        meta_og_image: "https://www.destruti.com/img/posts/post_20years.jpg",
+    };
+    
     res.render('pages/about', {
         locals,
     });
@@ -113,9 +122,13 @@ router.get('/about', async (req, res) => {
 router.get('/courses', async (req, res) => {
 
     const locals = {
-        title: "Destruti Website",
-        description: "This is a personal Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
-    }
+        title: "Eduardo Destruti",
+        url: "http://www.destruti.com/about",
+        description: "This is a personal Eduardo Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
+        meta_description: "This is a new Eduardo Destruti Websitebuild in NodeJs and EJS",
+        meta_og_image: "https://www.destruti.com/img/posts/post_20years.jpg",
+    };
+
     res.render('pages/courses', {
         locals,
     });
@@ -127,10 +140,12 @@ router.get('/posts', async (req, res) => {
     try {
 
         const locals = {
-            title: "Destruti Website",
-            description: "This is a personal Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
-        }
-        // const data = await Post.find();
+            title: "Eduardo Destruti",
+            url: "http://www.destruti.com/about",
+            description: "This is a personal Eduardo Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
+            meta_description: "This is a new Eduardo Destruti Websitebuild in NodeJs and EJS",
+            meta_og_image: "https://www.destruti.com/img/posts/post_20years.jpg",
+        };
 
         let perPage = 10;
         let page = req.query.page || 1;
