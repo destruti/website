@@ -7,9 +7,9 @@ router.get('', async (req, res) => {
     try {
 
         const locals = {
-            title: "Destruti Website",
-            description: "This is a personal Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
-            meta_description: "This is a new Destruti Website build in NodeJs and EJS",
+            title: "Eduardo Destruti",
+            description: "This is a personal Eduardo Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
+            meta_description: "This is a new Eduardo Destruti Websitebuild in NodeJs and EJS",
             meta_og_image: "https://www.destruti.com/img/posts/post_20years.jpg",
         }
 
