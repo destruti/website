@@ -11,7 +11,7 @@ router.get('', async (req, res) => {
             url: process.env.URL_WEBSITE,
             description: "This is a personal Eduardo Destruti Website <a href='https://github.com/destruti/website' target='_blank'>(Github)</a>" ,
             meta_description: "This is a new Eduardo Destruti Website build in NodeJs and EJS",
-            meta_og_image: process.env.URL_WEBSITE+"/img/posts/post_20years.jpg",
+            meta_og_image: `${process.env.URL_WEBSITE}/img/posts/post_20years.jpg`
         };
 
         let perPage = 10;
@@ -51,7 +51,7 @@ router.get('/post/:id', async (req, res) => {
             description: data.meta_description,
             meta_description: data.meta_description,
             meta_og_image: data.meta_og_image,
-            url: process.env.URL_WEBSITE+'/post/' + req.params.id,
+            url: process.env.URL_WEBSITE + '/post/' + req.params.id,
         };
 
         res.render('post', { locals, data });
