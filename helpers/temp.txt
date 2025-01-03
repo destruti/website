@@ -25,7 +25,7 @@ sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -
 pm2 save
 sudo systemctl start pm2-limaedu
 pm2 stop app
-pm2 restart app
+pm2 restart DestrutiWebsite
 pm2 monit
 
 

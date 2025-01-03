@@ -70,7 +70,7 @@ router.post('/admin', async (req, res) => {
 
     const token = jwt.sign({ userId: user._id }, jwtSecret);
     res.cookie('token', token, { httpOnly: true });
-    res.redirect('/dashboard');
+    res.redirect('/admin/dashboard');
 
   } catch (error) {
     console.log(error);
@@ -82,7 +82,7 @@ router.post('/admin', async (req, res) => {
  * GET /
  * Admin Dashboard
 */
-router.get('/dashboard', authMiddleware, async (req, res) => {
+router.get('/admin/dashboard', authMiddleware, async (req, res) => {
   try {
     const locals = {
       title: 'Dashboard',
@@ -107,7 +107,7 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
  * GET /
  * Admin - Create New Post
 */
-router.get('/add-post', authMiddleware, async (req, res) => {
+router.get('/admin/add-post', authMiddleware, async (req, res) => {
   try {
     const locals = {
       title: 'Add Post',
@@ -131,18 +131,19 @@ router.get('/add-post', authMiddleware, async (req, res) => {
  * POST /
  * Admin - Create New Post
 */
-router.post('/add-post', authMiddleware, async (req, res) => {
+router.post('/admin/add-post', authMiddleware, async (req, res) => {
   try {
     try {
       const newPost = new Post({
         title: req.body.title,
         meta_description: req.body.meta_description,
         meta_og_image: req.body.meta_og_image,
+        meta_keywords: req.body.meta_keywords,
         body: req.body.body
       });
 
       await Post.create(newPost);
-      res.redirect('/dashboard');
+      res.redirect('/admin/dashboard');
     } catch (error) {
       console.log(error);
     }
@@ -157,7 +158,7 @@ router.post('/add-post', authMiddleware, async (req, res) => {
  * GET /
  * Admin - Create New Post
 */
-router.get('/edit-post/:id', authMiddleware, async (req, res) => {
+router.get('/admin/edit-post/:id', authMiddleware, async (req, res) => {
   try {
 
     const locals = {
@@ -184,18 +185,19 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
  * PUT /
  * Admin - update New Post
 */
-router.post('/edit-post/:id', authMiddleware, async (req, res) => {
+router.post('/admin/edit-post/:id', authMiddleware, async (req, res) => {
   try {
 
     await Post.findByIdAndUpdate(req.params.id, {
       title: req.body.title,
       meta_description: req.body.meta_description,
       meta_og_image: req.body.meta_og_image,
+      meta_keywords: req.body.meta_keywords,
       body: req.body.body,
       updatedAt: Date.now()
     });
 
-    res.redirect(`/edit-post/${req.params.id}`);
+    res.redirect(`/admin/edit-post/${req.params.id}`);
 
   } catch (error) {
     console.log(error);
@@ -236,7 +238,7 @@ router.post('/delete-post/:id', authMiddleware, async (req, res) => {
 
   try {
     await Post.deleteOne( { _id: req.params.id } );
-    res.redirect('/dashboard');
+    res.redirect('/admin/dashboard');
   } catch (error) {
     console.log(error);
   }

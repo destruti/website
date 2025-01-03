@@ -14,6 +14,10 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
+  meta_keywords: {
+    type: String,
+    required: true
+  },
   body: {
     type: String,
     required: true

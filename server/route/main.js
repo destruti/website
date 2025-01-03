@@ -11,7 +11,8 @@ router.get('', async (req, res) => {
             url: process.env.URL_WEBSITE,
             description: "This is a personal Eduardo Destruti Website" ,
             meta_description: "This is a new Eduardo Destruti Website :: build in NodeJs and EJS",
-            meta_og_image: `${process.env.URL_WEBSITE}/img/posts/post_20years.jpg`
+            meta_og_image: `${process.env.URL_WEBSITE}/img/posts/post_20years.jpg`,
+            keywords: `Destruti, NodeJs, PHP, Python`,
         };
 
         let perPage = 10;
@@ -52,9 +53,10 @@ router.get('/post/:id', async (req, res) => {
             meta_description: data.meta_description,
             meta_og_image: data.meta_og_image,
             url: process.env.URL_WEBSITE + '/post/' + req.params.id,
+            keywords: data.meta_keywords.replaceAll('#', '').replaceAll(' ', ', '),
         };
 
-        res.render('post', { locals, data });
+        res.render('pages/post', { locals, data });
 
     } catch (error) {
         console.log(error)
@@ -72,6 +74,7 @@ router.post('/search', async (req, res) => {
             description: "This is a personal Eduardo Destruti Website" ,
             meta_description: "This is a new Eduardo Destruti Website :: build in NodeJs and EJS",
             meta_og_image: process.env.URL_WEBSITE+"/img/posts/post_20years.jpg",
+            keywords: `Destruti, NodeJs, PHP, Python`,
         };
 
         let searchTerm = req.body.searchTerm;
@@ -120,6 +123,7 @@ router.get('/courses', async (req, res) => {
         description: "This is a personal Eduardo Destruti Website" ,
         meta_description: "This is a new Eduardo Destruti Website :: build in NodeJs and EJS",
         meta_og_image: process.env.URL_WEBSITE+"/img/posts/post_20years.jpg",
+        keywords: `Destruti, NodeJs, PHP, Python`,
     };
 
     res.render('pages/courses', {
@@ -138,6 +142,7 @@ router.get('/posts', async (req, res) => {
             description: "This is a personal Eduardo Destruti Website" ,
             meta_description: "This is a new Eduardo Destruti Website :: build in NodeJs and EJS",
             meta_og_image: process.env.URL_WEBSITE+"/img/posts/post_20years.jpg",
+            keywords: `Destruti, NodeJs, PHP, Python`,
         };
 
         let perPage = 10;
