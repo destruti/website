@@ -18,6 +18,10 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
+  linkedin_post: {
+    type: String,
+    required: true
+  },
   body: {
     type: String,
     required: true

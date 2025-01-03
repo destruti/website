@@ -52,6 +52,7 @@ router.get('/post/:id', async (req, res) => {
             description: data.meta_description,
             meta_description: data.meta_description,
             meta_og_image: data.meta_og_image,
+            linkedin_post: data.linkedin_post,
             url: process.env.URL_WEBSITE + '/post/' + req.params.id,
             keywords: data.meta_keywords.replaceAll('#', '').replaceAll(' ', ', '),
         };
