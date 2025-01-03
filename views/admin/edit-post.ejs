@@ -30,6 +30,13 @@
   <label for="linkedin_post"><b>Link of Post in LinkedIn</b></label>
   <input type="text" placeholder="Link of Post in LinkedIn" name="linkedin_post" value="<%= data.linkedin_post %>">
 
+  <label for="post_active"><b>Status</b></label>
+  <select id="post_active" name="post_active">
+    <option value="1" <%- (data.post_active==1?'selected="selected"':'') %>>1 - Active</option>
+    <option value="0" <%- (data.post_active==0?'selected="selected"':'') %>>0 - Hidden</option>
+  </select>
+  <!-- <input type="text" placeholder="Status" name="post_active" value="<%= data.post_active %>"> -->
+
   <label for="body"><b>Content</b></label>
   <textarea name="body" cols="50" rows="100"><%= data.body %></textarea>
 

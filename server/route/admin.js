@@ -140,6 +140,7 @@ router.post('/admin/add-post', authMiddleware, async (req, res) => {
         meta_og_image: req.body.meta_og_image,
         linkedin_post: req.body.linkedin_post,
         meta_keywords: req.body.meta_keywords,
+        post_active: req.body.post_active,
         body: req.body.body
       });
 
@@ -195,6 +196,7 @@ router.post('/admin/edit-post/:id', authMiddleware, async (req, res) => {
       meta_og_image: req.body.meta_og_image,
       meta_keywords: req.body.meta_keywords,
       linkedin_post: req.body.linkedin_post,
+      post_active: req.body.post_active,
       body: req.body.body,
       updatedAt: Date.now()
     });

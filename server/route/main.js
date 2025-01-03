@@ -18,7 +18,12 @@ router.get('', async (req, res) => {
         let perPage = 10;
         let page = req.query.page || 1;
 
-        const data = await Post.aggregate([{ $sort: { createdAt: -1 } }])
+        const data = await Post.aggregate(
+                [
+                    { $match: { post_active: "1" } },
+                    { $sort: { createdAt: -1 } }
+                ]
+            )
             .skip(perPage * page - perPage)
             .limit(perPage)
             .exec();
@@ -53,6 +58,7 @@ router.get('/post/:id', async (req, res) => {
             meta_description: data.meta_description,
             meta_og_image: data.meta_og_image,
             linkedin_post: data.linkedin_post,
+            post_active: data.post_active,
             url: process.env.URL_WEBSITE + '/post/' + req.params.id,
             keywords: data.meta_keywords.replaceAll('#', '').replaceAll(' ', ', '),
         };
@@ -149,7 +155,12 @@ router.get('/posts', async (req, res) => {
         let perPage = 10;
         let page = req.query.page || 1;
 
-        const data = await Post.aggregate([{ $sort: { createdAt: -1 } }])
+        const data = await Post.aggregate(
+                [
+                    { $match: { post_active: "1" } },
+                    { $sort: { createdAt: -1 } }
+                ]
+            )
             .skip(perPage * page - perPage)
             .limit(perPage)
             .exec();

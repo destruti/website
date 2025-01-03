@@ -22,6 +22,10 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
+  post_active: {
+    type: String,
+    required: true
+  },
   body: {
     type: String,
     required: true

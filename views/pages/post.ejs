@@ -8,6 +8,8 @@
 <h5><%= data.meta_keywords %></h5>
 <br/>
 <br/>
-<a href="<%= data.linkedin_post %>" target="_blank">LinkedIn: <%= data.linkedin_post %></a>
+<% if ( data.linkedin_post != '') { %>
+    <a href="<%= data.linkedin_post %>" target="_blank">LinkedIn Post: <%= data.linkedin_post %></a>
+<% } %>
 <br/>
 <br/>

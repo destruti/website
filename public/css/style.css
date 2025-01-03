@@ -16,8 +16,8 @@ body {
   font-family: 'Poppins', sans-serif;
   color: var(--black);
   font-size: var(--font-size-base);
-  background-color: #FAF5EE;
-  background-image: url("/img/img-noise-361x370.png");
+  background-color: #ededed;
+  /* background-image: url("/img/img-noise-361x370.png"); */
   margin: 0;
 }
 
@@ -51,11 +51,20 @@ textarea {
   cursor: pointer;
 }
 
+.btn-green {
+  background-color: #58d68d !important;
+  color: white; 
+}
+
+.btn-red {
+  background-color: #ff0000 !important;
+  color: white; 
+}
+
 .btn-delete {
   padding: 10px 16px;
   background-color: var(--red);
 }
-
 
 img {
   width: 100%;
@@ -273,6 +282,11 @@ img {
 .admin-posts {
   padding: 0;
   margin: 0;
+}
+
+.admin-post-controls {
+  width: 380px;
+  text-align: right;
 }
 
 .admin-post-controls form {
