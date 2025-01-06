@@ -25,6 +25,12 @@ h1 { font-size: var(--font-size-xl); }
 h2 { font-size: var(--font-size-lg); }
 h3 { font-size: var(--font-size-md); }
 
+@media (max-width: 768px) {
+    .hidden-mobile {
+        display: none;
+    }
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"],
